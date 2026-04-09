@@ -261,6 +261,182 @@
             fill: #ffffff;
             text-anchor: middle
         }
+
+        /* ── God Panel ─────────────────────────────────────────── */
+        #godPanel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 188px;
+            height: 100vh;
+            background: rgba(5, 9, 17, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-right: 1px solid rgba(60, 110, 180, 0.22);
+            z-index: 100;
+            display: none;
+            flex-direction: column;
+            box-sizing: border-box;
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: 'Courier New', Courier, monospace;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(60, 110, 180, 0.3) transparent;
+        }
+
+        #godPanel::-webkit-scrollbar { width: 3px; }
+        #godPanel::-webkit-scrollbar-track { background: transparent; }
+        #godPanel::-webkit-scrollbar-thumb {
+            background: rgba(60, 110, 180, 0.35);
+            border-radius: 2px;
+        }
+
+        .gp-header {
+            padding: 14px 12px 11px;
+            font-size: 9.5px;
+            font-weight: bold;
+            letter-spacing: 3.5px;
+            color: rgba(90, 150, 220, 0.65);
+            border-bottom: 1px solid rgba(60, 110, 180, 0.18);
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        .gp-section {
+            padding: 10px 10px 7px;
+            border-bottom: 1px solid rgba(60, 110, 180, 0.11);
+        }
+
+        .gp-section-title {
+            font-size: 8.5px;
+            letter-spacing: 2.5px;
+            color: rgba(90, 150, 210, 0.45);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        .gp-btn {
+            background: rgba(12, 22, 38, 0.8);
+            border: 1px solid rgba(60, 110, 180, 0.22);
+            color: #6aa0d0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 11px;
+            padding: 6px 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.12s, border-color 0.12s, color 0.12s;
+            text-align: center;
+            user-select: none;
+        }
+
+        .gp-btn:hover {
+            background: rgba(40, 80, 140, 0.38);
+            border-color: rgba(90, 150, 220, 0.5);
+            color: #a8ccee;
+        }
+
+        .gp-btn.active {
+            background: rgba(30, 75, 155, 0.5);
+            border-color: rgba(70, 140, 230, 0.85);
+            color: #c8e2ff;
+            box-shadow: 0 0 7px rgba(70, 130, 230, 0.22);
+        }
+
+        .gp-row {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+
+        .gp-btn-wide {
+            flex: 1;
+            font-size: 11.5px;
+            padding: 7px 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .gp-speed-group {
+            display: flex;
+            gap: 4px;
+        }
+
+        .gp-speed { flex: 1; }
+
+        .gp-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+        }
+
+        /* Tool buttons */
+        .gp-tool {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            width: 100%;
+            background: rgba(10, 18, 32, 0.72);
+            border: 1px solid rgba(60, 110, 180, 0.19);
+            color: #6aa0d0;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 8px 9px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.12s, border-color 0.12s, color 0.12s, box-shadow 0.12s;
+            text-align: left;
+            margin-bottom: 4px;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        .gp-tool:last-child { margin-bottom: 0; }
+
+        .gp-tool:hover {
+            background: rgba(35, 65, 120, 0.42);
+            border-color: rgba(90, 150, 215, 0.45);
+            color: #a8caee;
+        }
+
+        .gp-tool.active {
+            background: rgba(25, 65, 140, 0.58);
+            border-color: rgba(70, 140, 230, 0.9);
+            color: #d0e8ff;
+            box-shadow: 0 0 10px rgba(70, 130, 230, 0.25);
+        }
+
+        .gp-tool-icon {
+            font-size: 15px;
+            width: 22px;
+            text-align: center;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .gp-tool-text { display: flex; flex-direction: column; gap: 1px; }
+
+        .gp-tool-label {
+            font-size: 10px;
+            letter-spacing: 0.4px;
+            line-height: 1.2;
+        }
+
+        .gp-tool-desc {
+            font-size: 8px;
+            color: rgba(90, 145, 200, 0.48);
+            letter-spacing: 0.2px;
+            line-height: 1.1;
+        }
+
+        .gp-footer {
+            padding: 10px 10px 14px;
+            font-size: 7.5px;
+            letter-spacing: 1px;
+            color: rgba(70, 110, 160, 0.35);
+            text-align: center;
+            margin-top: auto;
+            user-select: none;
+        }
+        /* ─────────────────────────────────────────────────────── */
     </style>
 </head>
 
@@ -570,6 +746,289 @@
     <canvas id="mainCanvas">
         Your browser does not support HTML5, you must be using a really old browser!
     </canvas>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!--  GOD-GAME CONTROL PANEL                                -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div id="godPanel">
+
+        <div class="gp-header">⛅ Weather Control</div>
+
+        <!-- ── SIMULATION ───────────────────────────────────── -->
+        <div class="gp-section">
+            <div class="gp-section-title">Simulation</div>
+            <div class="gp-row">
+                <button class="gp-btn gp-btn-wide" id="gp-pause-btn"
+                    onclick="gpTogglePause()">⏸ Pause</button>
+            </div>
+            <div class="gp-speed-group">
+                <button class="gp-btn gp-speed active" id="gp-speed-1x"
+                    onclick="gpSetSpeed(1)">1×</button>
+                <button class="gp-btn gp-speed" id="gp-speed-2x"
+                    onclick="gpSetSpeed(2)">2×</button>
+                <button class="gp-btn gp-speed" id="gp-speed-5x"
+                    onclick="gpSetSpeed(5)">5×</button>
+            </div>
+        </div>
+
+        <!-- ── DISPLAY MODE ──────────────────────────────────── -->
+        <div class="gp-section">
+            <div class="gp-section-title">Display</div>
+            <div class="gp-grid-2">
+                <button class="gp-btn gp-disp active" id="gp-disp-real"
+                    onclick="gpSetDisplay('DISP_REAL')">Realistic</button>
+                <button class="gp-btn gp-disp" id="gp-disp-temp"
+                    onclick="gpSetDisplay('DISP_TEMPERATURE')">Temp</button>
+                <button class="gp-btn gp-disp" id="gp-disp-humd"
+                    onclick="gpSetDisplay('DISP_HUMD')">Humidity</button>
+                <button class="gp-btn gp-disp" id="gp-disp-wind"
+                    onclick="gpSetDisplay('DISP_HORIVEL')">Wind Vec</button>
+                <button class="gp-btn gp-disp" id="gp-disp-water"
+                    onclick="gpSetDisplay('DISP_WATER')">Water Vap</button>
+                <button class="gp-btn gp-disp" id="gp-disp-precip"
+                    onclick="gpSetDisplay('DISP_PRECIPFEEDBACK_MASS')">Precip</button>
+            </div>
+        </div>
+
+        <!-- ── GOD TOOLS ─────────────────────────────────────── -->
+        <div class="gp-section">
+            <div class="gp-section-title">God Tools</div>
+
+            <button class="gp-tool" data-tool="high-pressure"
+                onclick="gpSelectTool('high-pressure')">
+                <span class="gp-tool-icon">H</span>
+                <span class="gp-tool-text">
+                    <span class="gp-tool-label">High Pressure</span>
+                    <span class="gp-tool-desc">Anticyclone · sinking air</span>
+                </span>
+            </button>
+
+            <button class="gp-tool" data-tool="low-pressure"
+                onclick="gpSelectTool('low-pressure')">
+                <span class="gp-tool-icon">L</span>
+                <span class="gp-tool-text">
+                    <span class="gp-tool-label">Low Pressure</span>
+                    <span class="gp-tool-desc">Cyclone · rising air</span>
+                </span>
+            </button>
+
+            <button class="gp-tool" data-tool="moisture"
+                onclick="gpSelectTool('moisture')">
+                <span class="gp-tool-icon">≋</span>
+                <span class="gp-tool-text">
+                    <span class="gp-tool-label">Add Moisture</span>
+                    <span class="gp-tool-desc">Inject humidity</span>
+                </span>
+            </button>
+
+            <button class="gp-tool" data-tool="heat"
+                onclick="gpSelectTool('heat')">
+                <span class="gp-tool-icon">▲</span>
+                <span class="gp-tool-text">
+                    <span class="gp-tool-label">Add Heat</span>
+                    <span class="gp-tool-desc">Warm up region</span>
+                </span>
+            </button>
+
+            <button class="gp-tool" data-tool="cold"
+                onclick="gpSelectTool('cold')">
+                <span class="gp-tool-icon">▼</span>
+                <span class="gp-tool-text">
+                    <span class="gp-tool-label">Cold Patch</span>
+                    <span class="gp-tool-desc">Cool down region</span>
+                </span>
+            </button>
+
+            <button class="gp-tool" data-tool="wind"
+                onclick="gpSelectTool('wind')">
+                <span class="gp-tool-icon">⇢</span>
+                <span class="gp-tool-text">
+                    <span class="gp-tool-label">Wind Brush</span>
+                    <span class="gp-tool-desc">Drag to push air</span>
+                </span>
+            </button>
+
+            <button class="gp-tool" data-tool="erase"
+                onclick="gpSelectTool('erase')">
+                <span class="gp-tool-icon">✕</span>
+                <span class="gp-tool-text">
+                    <span class="gp-tool-label">Clear Area</span>
+                    <span class="gp-tool-desc">Remove moisture</span>
+                </span>
+            </button>
+
+        </div>
+
+        <div class="gp-footer">WEATHER SANDBOX · GOD MODE</div>
+    </div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+
+    <script>
+    // ── God Panel Controller ─────────────────────────────────────
+    (function () {
+
+        // Tool configs: maps panel tool id → simulation settings
+        var TOOLS = {
+            'high-pressure': {
+                simTool:   'TOOL_TEMPERATURE',
+                intensity: -0.015,   // negative = cool = sinking air = high pressure
+                brushSize: 38,
+                label: 'High Pressure'
+            },
+            'low-pressure': {
+                simTool:   'TOOL_TEMPERATURE',
+                intensity:  0.015,   // positive = warm = rising air = low pressure
+                brushSize: 38,
+                label: 'Low Pressure'
+            },
+            'moisture': {
+                simTool:   'TOOL_WATER',
+                intensity:  0.025,
+                brushSize: 22,
+                label: 'Add Moisture'
+            },
+            'heat': {
+                simTool:   'TOOL_TEMPERATURE',
+                intensity:  0.04,
+                brushSize: 18,
+                label: 'Add Heat'
+            },
+            'cold': {
+                simTool:   'TOOL_TEMPERATURE',
+                intensity: -0.04,
+                brushSize: 18,
+                label: 'Cold Patch'
+            },
+            'wind': {
+                simTool:   'TOOL_WIND',
+                intensity:  0.08,
+                brushSize: 22,
+                label: 'Wind Brush'
+            },
+            'erase': {
+                simTool:   'TOOL_WATER',
+                intensity: -0.06,
+                brushSize: 26,
+                label: 'Clear Area'
+            }
+        };
+
+        var GP = {
+            activeTool:    null,
+            activeDisplay: 'DISP_REAL',
+            activeSpeed:   1
+        };
+
+        // ── Tool selection ─────────────────────────────────────
+        function gpSelectTool(toolKey) {
+            if (!window.guiControls) return;
+
+            // Toggle off if same tool clicked twice
+            if (GP.activeTool === toolKey) {
+                GP.activeTool = null;
+                guiControls.tool = 'TOOL_NONE';
+                guiControls.brushIntensity = 0.01;
+                document.querySelectorAll('.gp-tool').forEach(function (b) {
+                    b.classList.remove('active');
+                });
+                return;
+            }
+
+            GP.activeTool = toolKey;
+            var cfg = TOOLS[toolKey];
+            guiControls.tool          = cfg.simTool;
+            guiControls.brushIntensity = cfg.intensity;
+            guiControls.brushSize     = cfg.brushSize;
+
+            document.querySelectorAll('.gp-tool').forEach(function (b) {
+                b.classList.toggle('active', b.dataset.tool === toolKey);
+            });
+        }
+
+        // ── Speed control ──────────────────────────────────────
+        function gpSetSpeed(mult) {
+            if (!window.guiControls) return;
+            GP.activeSpeed = mult;
+            guiControls.auto_IterPerFrame = false;
+            guiControls.IterPerFrame = Math.round(10 * mult);
+
+            document.querySelectorAll('.gp-speed').forEach(function (b) {
+                b.classList.remove('active');
+            });
+            var el = document.getElementById('gp-speed-' + mult + 'x');
+            if (el) el.classList.add('active');
+        }
+
+        // ── Display mode ───────────────────────────────────────
+        var DISP_IDS = {
+            'DISP_REAL':                 'gp-disp-real',
+            'DISP_TEMPERATURE':          'gp-disp-temp',
+            'DISP_HUMD':                 'gp-disp-humd',
+            'DISP_HORIVEL':              'gp-disp-wind',
+            'DISP_WATER':                'gp-disp-water',
+            'DISP_PRECIPFEEDBACK_MASS':  'gp-disp-precip'
+        };
+
+        function gpSetDisplay(mode) {
+            if (!window.guiControls) return;
+            GP.activeDisplay = mode;
+            guiControls.displayMode = mode;
+
+            document.querySelectorAll('.gp-disp').forEach(function (b) {
+                b.classList.remove('active');
+            });
+            var id = DISP_IDS[mode];
+            if (id) {
+                var el = document.getElementById(id);
+                if (el) el.classList.add('active');
+            }
+        }
+
+        // ── Pause / Resume ─────────────────────────────────────
+        function gpTogglePause() {
+            if (!window.guiControls) return;
+            guiControls.paused = !guiControls.paused;
+            _syncPauseButton();
+        }
+
+        function _syncPauseButton() {
+            var btn = document.getElementById('gp-pause-btn');
+            if (!btn || !window.guiControls) return;
+            if (guiControls.paused) {
+                btn.textContent = '▶ Play';
+                btn.classList.add('active');
+            } else {
+                btn.textContent = '⏸ Pause';
+                btn.classList.remove('active');
+            }
+        }
+
+        // ── Expose to global (used by onclick attrs) ───────────
+        window.gpSelectTool  = gpSelectTool;
+        window.gpSetSpeed    = gpSetSpeed;
+        window.gpSetDisplay  = gpSetDisplay;
+        window.gpTogglePause = gpTogglePause;
+
+        // ── Show panel when simulation canvas goes live ────────
+        var mainCanvas = document.getElementById('mainCanvas');
+        var godPanel   = document.getElementById('godPanel');
+
+        var observer = new MutationObserver(function () {
+            if (mainCanvas.style.display === 'block') {
+                godPanel.style.display = 'flex';
+                observer.disconnect();
+
+                // Sync pause button state after a short delay
+                // (guiControls is set during loadData, needs a moment)
+                setTimeout(_syncPauseButton, 800);
+            }
+        });
+
+        observer.observe(mainCanvas, { attributes: true, attributeFilter: ['style'] });
+
+    })();
+    </script>
+
 </body>
 
 </html>

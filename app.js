@@ -3367,7 +3367,7 @@ async function mainScript(initialBaseTex, initialWaterTex, initialWallTex, initi
     failIfMajorPerformanceCaveat : false,
     powerPreference : 'high-performance',
     premultipliedAlpha : true, // true
-    preserveDrawingBuffer : false,
+    preserveDrawingBuffer : true,  // needed so Three.js globe can read canvas as texture
     stencil : false,
   };
   gl = canvas.getContext('webgl2', contextAttributes);
